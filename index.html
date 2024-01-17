@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Control de documentos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="./assets/icon/carpeta.png" type="image/png" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar bg-body-tertiary fixed-top bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#inicio">
+          <img src="./assets/icon/carpeta.png" alt="Logo" width="30" class="d-inline-block align-text-top" />
+          Control de documentos
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#reparaciones"
+          aria-controls="reparaciones" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="reparaciones" aria-labelledby="reparacionesLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="reparacionesLabel">
+              Gestión para el control documental
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" href="#Alta" onclick="handleAddDocument()">Alta de documentos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#enviar_aprobacion" onclick="handleOpensendApprov()">Enviar a aprobación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="handleOpenRevision()">Revisión y aprobación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="handleOpenVersion()">Solicitar actualizar documentos</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Configuraciones
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#equipos" onclick="openEquipo(event)">Equipos</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#usuarios" onclick="openUsuario(event)">Usuarios</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#registro" onclick="openRegistro()">Registro</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container container-main" id="interface"></div>
+  <div class="modal" tabindex="-1" id="myModalMessage">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" id="myModalMessageloaded">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Procesando solicitud</h5>
+        </div>
+        <div class="modal-body">
+          <p>Espere unos segundos ...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Add buttons to initiate auth sequence and sign out-->
+  <div class="buttons-auth container group-auth-btn" hidden>
+    <button class="btn btn-primary mx-2" id="authorize_button" onclick="handleAuthClick()">
+      Authorize
+    </button>
+    <button class="btn btn-secondary mx-2" id="signout_button" onclick="handleSignoutClick()">
+      Sign Out
+    </button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="./class/Table.js"></script>
+  <script src="./js/credentials.js"></script>
+  <script src="./js/auth.js"></script>
+
+  <script src="./class/Users.js"></script>
+  <script src="./class/Email.js"></script>
+  <script src="./class/AreasEmpresariales.js"></script>
+
+  <script src="./class/ApiServices.js"></script>
+  <script src="./class/TypesDoc.js"></script>
+  <script src="./js/UI.js"></script>
+  <script src="./class/Documentos.js"></script>
+  <script src="./class/Dates.js"></script>
+  <script src="./js/main.js"></script>
+
+  <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+  <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<div class="container-small">
+    <h2>Enviar a aprobación</h2>
+    <form class="row needs-validation g-1" novalidate id="formSendApprov">
+        <div>
+            <div class="col-12">
+                <label for="input_codigo" class="col-form-label col-form-label-sm">Ingrese el código del documento<span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" id="input_codigo" placeholder="REG-SG-001" onchange="handleLoadDocument(event)" required />
+            </div>
+            <div class="col-12 mt-3">
+                <p>⚠️</i> Status del documento: <span id="statusInfo" class="text-danger"></span></p>
+                <p  class="text-success"><i class="bi bi-file-person-fill"></i> <span id="ApprovInfo">¿Quien aprueba?</span></p>
+            </div>
+        </div>
+        
+        <div class="col-8">
+            <label for="tipo" class="col-form-label col-form-label-sm">Tipo de documento <span class="text-danger">*</span></label>
+            <select class="form-select form-select-sm" id="tipo" disabled required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="rev" class="col-form-label col-form-label-sm">Revisión <span class="text-danger">*</span></label>
+            <input type="number" min="0" max="99" class="form-control form-control-sm send-approv-document" id="rev"
+                value="0" required />
+        </div>
+        <div class="col-12">
+            <label for="nombre" class="col-form-label col-form-label-sm">Nombre del documento <span class="text-danger">*</span></label>
+            <textarea type="text" class="form-control form-control-sm send-approv-document" rows="2" id="nombre"
+                required></textarea>
+        </div>
+        <div class="col-12">
+            <label for="url" class="col-form-label col-form-label-sm">Dirección url <span class="text-danger">*</span></label>
+            <input type="url" class="form-control form-control-sm send-approv-document" id="url" required/>
+        </div>
+        <div class="col-12">
+            <label for="partes_interesadas" class="col-form-label col-form-label-sm">Partes interesadas</label>
+            <select class="form-select form-select-sm send-approv-document" id="partes_interesadas">
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="responsable" class="col-form-label col-form-label-sm">Cargo del responsable del documento <span class="text-danger">*</span></label>
+            <select class="form-select form-select-sm send-approv-document" id="responsable" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="proceso" class="col-form-label col-form-label-sm">Proceso <span
+                    class="text-danger">*</span></label>
+            <select class="form-select form-select-sm" id="proceso" onchange="handleLoadSectorByArea('sector', event)" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-6">
+            <label for="sector" class="col-form-label col-form-label-sm">Sector <span
+                class="text-danger">*</span></label>
+            <select class="form-select form-select-sm send-approv-document" id="sector" onchange="handleLoadSubsBySector('subsector', event)" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-6">
+            <label for="subsector" class="col-form-label col-form-label-sm">Subsector <span
+                class="text-danger">*</span></label>
+            <select class="form-select form-select-sm send-approv-document" id="subsector" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="revisado_por" class="col-form-label col-form-label-sm">Encargado de revisar documento <span class="text-danger">*</span></label>
+            <select class="form-select form-select-sm send-approv-document" id="revisado_por" onchange="handleSetWhoApprov(event)" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="row g-2 mt-3 mx-auto">
+            <div class="col-12 container-btn">
+                <button id="buttonSendApprov" type="button" class="btn btn-primary" onclick="handleSendToApprov(event)" disabled>
+                    Guardar y Enviar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

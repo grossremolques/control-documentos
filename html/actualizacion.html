@@ -1,0 +1,56 @@
+<div class="container-small">
+    <h2>Solicitud de actualización</h2>
+    <p>Es la solicitud para que un documento sea reversionado/actualizado. <br>El documento pasará al status <strong>"En revisión"</strong></p>
+    <form class="row needs-validation g-1" novalidate id="formReqVers">
+        <div>
+            <div class="col-12">
+                <label for="input_codigo" class="col-form-label col-form-label-sm">Ingrese el código del documento<span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" id="input_codigo" placeholder="REG-SG-001" onchange="handleCanVers(event)" required />
+            </div>
+            <div class="col-12 mt-3">
+                <p>⚠️</i> Status del documento: <span id="statusInfo" class="text-danger"></span></p>
+            </div>
+        </div>
+        <div class="col-8">
+            <label for="tipo" class="col-form-label col-form-label-sm">Tipo de documento <span class="text-danger">*</span></label>
+            <select class="form-select form-select-sm save-vers" id="tipo" disabled required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="rev" class="col-form-label col-form-label-sm">Revisión <span class="text-danger">*</span></label>
+            <input type="number" min="0" max="99" class="form-control form-control-sm save-vers" id="rev"
+                value="0" required disabled/>
+        </div>
+        <div class="col-12">
+            <label for="nombre" class="col-form-label col-form-label-sm">Nombre del documento <span class="text-danger">*</span></label>
+            <textarea type="text" class="form-control form-control-sm save-vers" rows="2" id="nombre"
+                required disabled></textarea>
+        </div>
+        
+        <div class="col-12">
+            <label for="responsable" class="col-form-label col-form-label-sm">Cargo del responsable del documento <span class="text-danger">*</span></label>
+            <select class="form-select form-select-sm save-vers" id="responsable" required disabled>
+                <option selected value=""></option>
+            </select>
+        </div>
+        
+        <div class="col-12">
+            <label for="recipient" class="col-form-label col-form-label-sm">Encargado de la actualización<span class="text-danger">*</span></label>
+            <select class="form-select form-select-sm save-vers" id="recipient" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="coment" class="col-form-label col-form-label-sm">Comentario (opcional)</label>
+            <textarea class="form-control form-control-sm save-revision" name="coment" id="coment" rows="3"></textarea>
+        </div>
+        <div class="row g-2 mt-3 mx-auto">
+            <div class="col-12 container-btn">
+                <button id="buttonSendVers" type="button" class="btn btn-primary" onclick="handleSendToVers(event)" disabled>
+                    Guardar y Enviar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
