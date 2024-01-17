@@ -183,6 +183,7 @@ async function handleCanApprov(event) {
         "Usted no es el responsable de la revisión"
       );
       inputs.forEach((item) => item.setAttribute("disabled", "")); 
+      buttonSendRev.setAttribute("disabled", "");
     }
     buttonSendRev.removeAttribute("disabled", "");
     typeApprov = 'Contenido'

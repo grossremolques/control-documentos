@@ -74,10 +74,11 @@ class Documento {
     data.registrado_por = await Usuario.getAliasByEmail();
     data.codigo = await this.createCodigo(data);
     newDocumento = new Documento(data);
+    let codigo = newDocumento.codigo;
     let headers = await ApiGoogleSheet.getHeaders(range);
     newDocumento = objectToArray(data, headers);
     await ApiGoogleSheet.postData(range, newDocumento);
-    return newDocumento.codigo;
+    return codigo;
   }
   static async createCodigo(data) {
     let alias;
