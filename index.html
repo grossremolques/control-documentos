@@ -33,33 +33,19 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link" href="#registrar_documentos" onclick="handleAddDocument()">Registrar documentos</a>
+                <a class="nav-link" href="#registrar_documentos" onclick="handleAddDocument()"><i class="bi bi-plus-square-fill"></i> Registrar documentos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#enviar_aprobacion" onclick="handleOpensendApprov()">Enviar a aprobación</a>
+                <a class="nav-link" href="#enviar_aprobacion" onclick="handleOpensendApprov()"><i class="bi bi-send-exclamation-fill"></i></i> Enviar a aprobación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#revision" onclick="handleOpenRevision()">Revisión y aprobación</a>
+                <a class="nav-link" href="#revision" onclick="handleOpenRevision()"><i class="bi bi-ui-checks"></i> Revisión y aprobación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#solicitud_actualizacion" onclick="handleOpenVersion()">Solicitar actualizar documentos</a>
+                <a class="nav-link" href="#solicitud_actualizacion" onclick="handleOpenVersion()"><i class="bi bi-file-earmark-medical-fill"></i>  Solicitar actualizar documentos</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Configuraciones
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#equipos" onclick="openEquipo(event)">Equipos</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#usuarios" onclick="openUsuario(event)">Usuarios</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#registro" onclick="openRegistro()">Registro</a>
-                  </li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#help" onclick="handleOpenHelp()"><i class="bi bi-question-circle-fill"></i>  Ayuda</a>
               </li>
             </ul>
           </div>
@@ -129,6 +115,7 @@
 
   <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
   <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+  
 </body>
 
 </html>
