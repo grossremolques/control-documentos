@@ -1,6 +1,3 @@
-window.addEventListener("load", async function () {
-  await loadPage("./html/loaded.html");
-});
 const range = "Registro!A1:ZZZ";
 const sheetTypeDoc = "Tipo documento!A1:ZZZ";
 const sheetProcesos = "Procesos!A1:ZZZ";
@@ -18,6 +15,7 @@ const headerNames = ["Código", "Tipo", "Nombre", "Rev", "Estado", "Ubicaión"];
 const titlePage = "Control de documentos";
 
 async function loadedWindow() {
+  await loadPage("./html/loaded.html");
   let hasUser = await Usuario.hasUser();
   if(hasUser) {
     dataTable = await Documento.getDocuments();
@@ -28,7 +26,6 @@ async function loadedWindow() {
   else {
     loadDeniedPage()
   }
-  
 }
 async function loadPage(srcPage, body = interface) {
   let response;

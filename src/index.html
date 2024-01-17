@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8" />
@@ -15,7 +15,7 @@
   <header>
     <nav class="navbar bg-body-tertiary fixed-top bg-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#inicio">
+        <a class="navbar-brand" href="#inicio" onclick="loadedWindow()">
           <img src="./assets/icon/carpeta.png" alt="Logo" width="30" class="d-inline-block align-text-top" />
           Control de documentos
         </a>
@@ -33,16 +33,16 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link" href="#Alta" onclick="handleAddDocument()">Alta de documentos</a>
+                <a class="nav-link" href="#registrar_documentos" onclick="handleAddDocument()">Registrar documentos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#enviar_aprobacion" onclick="handleOpensendApprov()">Enviar a aprobación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="handleOpenRevision()">Revisión y aprobación</a>
+                <a class="nav-link" href="#revision" onclick="handleOpenRevision()">Revisión y aprobación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onclick="handleOpenVersion()">Solicitar actualizar documentos</a>
+                <a class="nav-link" href="#solicitud_actualizacion" onclick="handleOpenVersion()">Solicitar actualizar documentos</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
