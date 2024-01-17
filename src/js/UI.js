@@ -3,6 +3,10 @@ let typeApprov;
 async function loadDeniedPage() {
   await loadPage("./html/deniedPage.html");
 }
+async function handleOpenHelp() {
+  await loadPage("./html/help.html");
+}
+
 
 function hadleNextPage() {
   Table.nextPage();

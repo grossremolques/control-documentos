@@ -29,18 +29,19 @@ class Email {
   }
   static bodySendToapprov(data,typeApprov) {
     let body = `
-      <h3>Solicitud de Revisión y Aprobación de Documento - ${typeApprov}</h3>
-      <p>Estimado ${data.revisor}. 
-      <br>
-      Me dirijo a usted para solicitar su colaboración en la revisión y aprobación del siguiente documento como parte de nuestro proceso de control documental:</p>
-      <ul>
-          <li><strong>Coódigo:</strong> ${data.codigo}</li>
-          <li><strong>Nombre:</strong> ${data.nombre}</li>
-          <li><strong>Revisión:</strong> ${data.rev}</li>
-          <li><strong>Responsable:</strong> ${data.responsable}</li>
-          <li><strong>Enlace:</strong> <a href="${data.url}">URL del documento</a></li>
-      </ul>
-      <p>Agradezco de antemano su tiempo y colaboración en la revisión del documento.</p>`;
+    <h3>Solicitud de Revisión y Aprobación de Documento - ${typeApprov}</h3>
+    <p>Estimado ${data.revisor}. 
+    <br>
+    Me dirijo a usted para solicitar su colaboración en la revisión y aprobación del siguiente documento como parte de nuestro proceso de control documental:</p>
+    <ul>
+        <li><strong>Coódigo:</strong> ${data.codigo}</li>
+        <li><strong>Nombre:</strong> ${data.nombre}</li>
+        <li><strong>Revisión:</strong> ${data.rev}</li>
+        <li><strong>Responsable:</strong> ${data.responsable}</li>
+        <li><strong>Enlace:</strong> <a href="${data.url}">URL del documento</a></li>
+    </ul>
+    <p><em>La revisión del documento debe hacerse por medio de la herramienta</em> <a href="https://grossremolques.github.io/control-documentos">App Control de documentos</a> en el menú la opción "Revisión y Aporbación"</p>
+    <p>Agradezco de antemano su tiempo y colaboración en la revisión del documento.</p>`;
     return body;
   }
   static async sendEmailToApprov(data, typeApprov) {
