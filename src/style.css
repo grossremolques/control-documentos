@@ -1,0 +1,61 @@
+#interface {
+    position: relative;
+    top: 75px;
+}
+.container-small {
+    max-width: 400px;
+    margin: auto;
+}
+/* input, select {
+    background-color: #0d6efd14 !important;
+} */
+#badgeItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.badge {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    background-color: #222222b6;
+  }
+  .badge button {
+    border-style: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+  }
+.table-btn-icon{
+    color: #555;
+    cursor: pointer;
+    padding: 0 3px;
+    border-radius: 5px;
+    background-color: rgb(220, 220, 220);
+}
+.loader-container {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader {
+    text-align: center;
+}
+.hidden {
+    display: none !important;
+}
+.container-img {
+    margin: auto;
+    width: 200px;
+    margin-bottom: 20px;
+}
+.container-img img{
+    width: 100%;
+}

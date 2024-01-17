@@ -1,0 +1,106 @@
+<h1 class="display-6 my-4 text-center" id="titleTable"></h1>
+<div class="row g-1">
+    <div class="col-auto">
+        <button class="btn btn-primary mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter"
+            aria-controls="offcanvasFilter">
+            Filtrar Avanzado <i class="bi bi-funnel-fill"></i>
+        </button>
+    </div>
+    <div class="col">
+        <input type="text" class="form-control" placeholder="Escriba para filtar" onkeyup="hadleSimpleFilter(event)">
+    </div>
+</div>
+
+<table class="table table-sm" style="font-size: 0.95rem;">
+    <thead>
+        <tr>
+            <th id="rowHeader"><i class="bi bi-eye-fill"></i></th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <td>
+        </td>
+    </tbody>
+</table>
+<div class="d-flex justify-content-between">
+    <div class="btn-group" role="group" aria-label="Basic example" id="pagination">
+        <button type="button" class="btn btn-outline-dark" id="prevPage" onclick="hadlePrevPage()" disabled>Anterior</button>
+        <button type="button" class="btn btn-outline-dark" id="nextPage" onclick="hadleNextPage()">Siguiente</button>
+    </div>
+    <strong>
+        <p id="footPage">1</p>
+    </strong>
+</div>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasFilter" aria-labelledby="offcanvasFilterLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasFilterLabel">Opciones de Filtro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form class="row g-1" id="formFilter">
+            <div class="col-6">
+                <label for="codigo_filter" class="col-form-label col-form-label-sm">Código</label>
+                <input id="codigo_filter" name="codigo" class="form-control form-control-sm filter-value">
+            </div>
+            <div class="col-6">
+                <label for="status_filter" class="col-form-label col-form-label-sm">Status</label>
+                <select id="status_filter" name="status" class="form-select form-select-sm filter-value">
+                </select>
+            </div>
+            <div class="col">
+                <label for="tipo_filter" class="col-form-label col-form-label-sm">Tipo de documento</label>
+                <select id="tipo_filter" name="tipo" class="form-select form-select-sm filter-value">
+                    <option selected value="">Ninguno</option>
+                </select>
+            </div>
+            <div class="col-7">
+                <label for="proceso_filter" class="col-form-label col-form-label-sm">Proceso</label>
+                <select class="form-select form-select-sm filter-value" name="proceso" id="proceso_filter" onchange="handleLoadSectorByArea('sector_filter', event)">
+                    <option selected value="">Ninguno</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="sector_filter" class="col-form-label col-form-label-sm">Sector</label>
+                <select class="form-select form-select-sm filter-value" name="sector" id="sector_filter" onchange="handleLoadSubsBySector('subsector_filter', event)">
+                    <option selected value="">Ninguno</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="subsector_filter" class="col-form-label col-form-label-sm">Subsector</label>
+                <select class="form-select form-select-sm filter-value" name="subsector" id="subsector_filter">
+                    <option selected value="">Ninguno</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="responsable_filter" class="col-form-label col-form-label-sm">Responsable</label>
+                <select class="form-select form-select-sm filter-value" name="responsable" id="responsable_filter">
+                    <option selected value="">Ninguno</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="filter_partes_interesadas" class="col-form-label col-form-label-sm">Partes Inetresadas</label>
+                <input class="form-control form-control-sm" type="text" name="partes_interesadas" id="filter_partes_interesadas" list="listPI" onchange="Table.addPI()"/>
+                <datalist id="listPI">
+                    <option value="Calidad y Sistemas">
+                    <option value="Producción"></option>
+                    <option value="Asistente de ventas"></option>
+                </datalist>
+                <div class="col mt-3" id="badgeItems" >
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <button type="btn" class="btn btn-primary" id="search" onclick="hadleAdvanceFilter(event)">Filtar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Información del documento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" id="offcanvasCardBody">
+        ...
+    </div>
+</div>

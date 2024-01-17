@@ -1,0 +1,87 @@
+<div class="container-small">
+    <form class="row needs-validation g-1 hidden" novalidate id="formCardDocument">
+        <div class="col-4">
+            <label for="codigo" class="col-form-label col-form-label-sm">Código</label>
+            <input type="text" class="form-control form-control-sm" id="codigo" required>
+        </div>
+        <div class="col-8">
+            <label for="tipo" class="col-form-label col-form-label-sm">Tipo de documento</label>
+            <select class="form-select form-select-sm" id="tipo" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="nombre" class="col-form-label col-form-label-sm">Nombre del documento</label>
+            <textarea type="text" class="form-control form-control-sm" rows="2" id="nombre" required></textarea>
+        </div>
+        <div class="col-6">
+            <label for="rev" class="col-form-label col-form-label-sm">Revisión</label>
+            <input type="number" class="form-control form-control-sm" id="rev" required>
+        </div>
+        <div class="col-6">
+            <label for="fecha_alta" class="col-form-label col-form-label-sm">Vigente desde</label>
+            <input type="date" class="form-control form-control-sm" id="fecha_alta" required>
+        </div>
+        <div class="col-12">
+            <label for="url" class="col-form-label col-form-label-sm">Dirección url</label>
+            <input type="url" class="form-control form-control-sm" id="url" required>
+        </div>
+        <div class="col-12">
+            <label for="partes_interesadas" class="col-form-label col-form-label-sm">Partes interesadas</label>
+            <select class="form-select form-select-sm" id="partes_interesadas">
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="proceso" class="col-form-label col-form-label-sm">Proceso</label>
+            <select class="form-select form-select-sm" id="proceso" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="sector" class="col-form-label col-form-label-sm">Sector</label>
+            <select class="form-select form-select-sm" id="sector" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="subsector" class="col-form-label col-form-label-sm">Subsector</label>
+            <select class="form-select form-select-sm" id="subsector" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="responsable" class="col-form-label col-form-label-sm">Responsable del documento</label>
+            <select class="form-select form-select-sm" id="responsable" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="codigo_antiguo" class="col-form-label col-form-label-sm">Código antiguo</label>
+            <input type="text" class="form-control form-control-sm" id="codigo_antiguo">
+        </div>
+        <div class="col-8">
+            <label for="status" class="col-form-label col-form-label-sm">Status</label>
+            <select class="form-select form-select-sm" id="status" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="auditoria" class="col-form-label col-form-label-sm">Auditoría</label>
+            <select class="form-select form-select-sm" id="auditoria" required>
+                <option selected value=""></option>
+            </select>
+        </div>
+        <div class="row g-2 mt-3 mx-auto">
+            <div class="col">
+                <button id="btnSubmit" type="button" class="btn btn-outline-primary w-100" onclick="hadleEditCard()">Editar</button>
+            </div>
+            <div class="col">
+                <button id="btnSubmit" type="button" class="btn btn-outline-primary w-100" disabled>Guardar</button>
+            </div>
+        </div>
+    </form>
+    <div id="loaded" class="container d-flex justify-content-center">
+
+    </div>
+</div>

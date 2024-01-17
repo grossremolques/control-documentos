@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "unorm": "^1.6.0"
+  },
+  "name": "gestion-documental",
+  "description": "Gestión de control docuemntal para las normas ISO 9001:2015",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarkastherin/gestion-documental.git"
+  },
+  "keywords": [
+    "Documentos",
+    "ISO",
+    "9001",
+    "Control"
+  ],
+  "author": "Katherin Guerrero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sarkastherin/gestion-documental/issues"
+  },
+  "homepage": "https://github.com/Sarkastherin/gestion-documental#readme"
+}

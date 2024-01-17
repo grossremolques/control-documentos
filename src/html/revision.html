@@ -1,0 +1,43 @@
+<div class="container-small">
+    <h2>Revisión</h2>
+    <form class="row needs-validation g-1" novalidate id="formRevision">
+        <div>
+            <div class="col-12">
+                <label for="input_codigo" class="col-form-label col-form-label-sm">Ingrese el código del documento<span
+                        class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" id="input_codigo" placeholder="REG-GC-001"
+                    onchange="handleCanApprov(event)" required />
+            </div>
+            <div class="col-12 mt-3">
+                <p>⚠️</i> Status del documento: <span id="statusInfo" class="text-danger"></span></p>
+                <p  class="text-success"><i class="bi bi-file-earmark-medical-fill"></i> Tipo de revisión: <span id="typeRev"></span></p>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input save-revision" type="radio" name="revision" id="aprobar" required>
+                <label class="form-check-label" for="aprobar">
+                    Aprobar
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input save-revision" type="radio" name="revision" id="rechazar" required>
+                <label class="form-check-label" for="rechazar">
+                    Rechazar
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <label for="coment" class="col-form-label col-form-label-sm">Comentario (opcional)</label>
+            <textarea class="form-control form-control-sm save-revision" name="coment" id="coment" rows="3"></textarea>
+        </div>
+        <div class="row g-2 mt-3 mx-auto">
+            <div class="col-12 container-btn">
+                <button id="buttonSendRev" type="button" class="btn btn-primary" onclick="handleSendRev(event)"
+                    disabled>
+                    Guardar y Enviar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
