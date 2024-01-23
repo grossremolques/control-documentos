@@ -14,9 +14,14 @@ let dataTable;
 const headerNames = ["Código", "Tipo", "Nombre", "Rev", "Estado", "Ubicaión"];
 const titlePage = "Control de documentos";
 
+let isEncargadoCalidad;
+
 async function loadedWindow() {
   await loadPage("./html/loaded.html");
   let hasUser = await Usuario.hasUser();
+  let userEmail = await ApiGoogleSheet.getEmail();
+  let encargadoCalidad = await Usuario.getEncargadoCalidad()
+  isEncargadoCalidad = encargadoCalidad.email === userEmail;
   if(hasUser) {
     dataTable = await Documento.getDocuments();
     dataTable = dataTable.filter(item => item.status != 'Superado')
@@ -77,4 +82,12 @@ function getColumnByKey(key, array) {
   let newArray = array[0];
   newArray = Object.keys(newArray)
   return newArray.indexOf(key) + 1
+}
+function listenerChangeEvent(body) {
+  let list = body.querySelectorAll('.form-select, .form-control')
+  list.forEach(item => {
+    item.addEventListener('change', (event) => {
+      event.target.classList.add('change-save');
+    })
+  })
 }

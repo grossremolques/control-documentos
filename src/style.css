@@ -59,3 +59,21 @@
 .container-img img{
     width: 100%;
 }
+tr[title="Contenido Aprobado"] td {
+    color: blue;    
+}
+tr[title="Enviado Aprob. contenido"] td {
+    color:greenyellow;
+    background-color: #777;    
+}
+tr[title="Rechazado formato"] td {
+    background-color: rgb(253 140 140 / 33%);  
+    color: red;
+}
+tr[title="En revisión"] td {
+    background-color: rgb(252 174 146 / 56%);   
+    color: rgb(233, 62, 0);
+}
+tr[title="Pendiente"] td {
+    background-color: rgb(252 232 146 / 59%);   
+}

@@ -28,13 +28,13 @@ class Table {
         await loadProcesos('proceso_filter');
         await loadResponsables('responsable_filter')
     }
-    static loadBodyTable(page, data) {
+    static async loadBodyTable(page, data) {
         const start = page * itemsPerPage;
         const end = start + itemsPerPage;
         tableBody.innerHTML = '';
         for (let i = start; i < end && i < data.length; i++) {
             const url = {}
-            if((data[i].status == 'Aprobado' || data[i].status == 'En revisión') && data[i].url){
+            if((data[i].status == 'Aprobado' || data[i].status == 'En revisión' || isEncargadoCalidad) && data[i].url){
                 url.visibility = '',
                 url.text = 'Link',
                 url.link = data[i].url
@@ -45,12 +45,12 @@ class Table {
                 url.link = '#'
             }
             tableBody.innerHTML += `
-            <tr>
+            <tr title="${data[i].status}">
                 <td>${data[i].codigo}</td>
                 <td>${data[i].tipo}</td>
                 <td>${data[i].nombre}</td>
                 <td>${data[i].rev}</td>
-                <td>${data[i].status}</td>
+                <td >${data[i].status}</td>
                 <td>
                     <a class="btn btn-success w-100 btn-sm ${url.visibility}"
                     href="${url.link}"

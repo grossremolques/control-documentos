@@ -28,11 +28,7 @@ async function handleOpenCard(event) {
   let disabledItems = items.querySelectorAll("input, select, textarea");
   disabledItems.forEach((elm) => elm.setAttribute("disabled", ""));
 }
-function hadleEditCard() {
-  let items = document.getElementById("formCardDocument");
-  let disabledItems = items.querySelectorAll("input, select, textarea");
-  disabledItems.forEach((elm) => elm.removeAttribute("disabled", ""));
-}
+
 /* Alta de documento */
 async function handleAddDocument() {
   await loadPage("./html/alta.html");
@@ -245,6 +241,10 @@ async function handleSendRev(event) {
     DataForm.recipient = await Usuario.getEmailByAlias(recipient)
     DataForm.registrado_por = recipient
     await Email.sendEmailToRev(DataForm, coment, typeApprov, codigo);
+    console.log(typeApprov, DataForm.status)
+    if(typeApprov === 'Contenido' && DataForm.status == 'Contenido Aprobado') {
+      await Email.sendEmailNotifQualityApprov(codigo)
+    }
     inputs.forEach((item) => item.setAttribute("disabled", ""));
     buttonSendRev.setAttribute("disabled", "");
     modalHide("myModalMessageloaded");
@@ -468,7 +468,6 @@ async function handleLoadSectorByArea(inputId = "sector", event) {
     console.log(e);
   }
 }
-//handleLoadSectorByArea('sector', event)
 async function loadResponsables(inputId = "responsable") {
   try {
     let response = await ApiGoogleSheet.getResponse(sheetResponsables);
@@ -555,5 +554,35 @@ async function loadUsuarios(inputId = "recipient") {
     });
   } catch (e) {
     console.log(e);
+  }
+}
+// Tarjeta Docuemnto
+function hadleEditCard() {
+  let form = document.getElementById("formCardDocument");
+  let disabledItems = form.querySelectorAll("input, select, textarea");
+  disabledItems.forEach((elm) => elm.removeAttribute("disabled", ""));
+  let btnSubmitSave = document.getElementById('btnSubmitSave');
+  btnSubmitSave.removeAttribute('disabled')
+}
+async function hadleDaveChangeCard() {
+  modalShowLoad()
+  let form = document.getElementById("formCardDocument");
+  try {
+    let codigo = document.getElementById('codigo').value
+    let inputs = form.querySelectorAll(".change-save");
+    inputs.forEach((item) => {
+      DataForm[item.id] = item.value;
+    });
+    await Documento. update(codigo, DataForm);
+    dataTable = await Documento.getDocuments();
+    dataTable = dataTable.filter(item => item.status != 'Superado')
+    Table.loadBodyTable(currentPage, dataTable);
+    modalHide("myModalMessageloaded");
+    modalShow(
+      "¡✔️ Cambios efectuados!",
+      "Se ha actualizado la información del registro"
+    );
+  } catch (e) {
+    console.log(e)
   }
 }
