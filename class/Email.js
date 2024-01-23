@@ -40,7 +40,7 @@ class Email {
         <li><strong>Responsable:</strong> ${data.responsable}</li>
         <li><strong>Enlace:</strong> <a href="${data.url}">URL del documento</a></li>
     </ul>
-    <p><em>La revisión del documento debe hacerse por medio de la herramienta</em> <a href="https://grossremolques.github.io/control-documentos">App Control de documentos</a> en el menú la opción "Revisión y Aporbación"</p>
+    <p><em>La revisión del documento debe hacerse por medio de la herramienta</em> <a href="https://grossremolques.github.io/control-documentos">App Control de documentos</a> en el menú la opción "Revisión y Aprobación"</p>
     <p>Agradezco de antemano su tiempo y colaboración en la revisión del documento.</p>`;
     return body;
   }
@@ -73,9 +73,30 @@ class Email {
   static bodySendToVers(codigo, coment) {
     let body = `
       <h3>Solicitud de actualización de documentos</h3>
-      Se solicita la actualización del siguiente documento:</p>
+      <p>Se solicita la actualización del siguiente documento:</p>
       <p><strong>Código: </strong>${codigo}</p>
       <p>${coment}</p>`;
+    return body;
+  }
+  static async sendEmailNotifQualityApprov(codigo) {
+    try {
+      let data = {}
+      let encargadoCalidad = await Usuario.getEncargadoCalidad();
+      data.recipient = encargadoCalidad.email
+      data.subject = `Revisar Formato`;
+      data.body = this.bodyNotifQualityApprov(codigo);
+      await this.sendEmail(data);
+      console.log('listo')
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  static bodyNotifQualityApprov(codigo) {
+    let body = `
+      <h3>Revisar Formato</h3>
+      <p>Atención, Encargado de calidad</p>
+      <p>Revise el siguiente documento</p>
+      <p><strong>Código: </strong>${codigo}</p>`;
     return body;
   }
   

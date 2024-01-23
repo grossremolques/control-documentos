@@ -2,7 +2,7 @@
     <form class="row needs-validation g-1 hidden" novalidate id="formCardDocument">
         <div class="col-4">
             <label for="codigo" class="col-form-label col-form-label-sm">Código</label>
-            <input type="text" class="form-control form-control-sm" id="codigo" required>
+            <input type="text" class="form-control form-control-sm" id="codigo" readonly >
         </div>
         <div class="col-8">
             <label for="tipo" class="col-form-label col-form-label-sm">Tipo de documento</label>
@@ -72,12 +72,12 @@
                 <option selected value=""></option>
             </select>
         </div>
-        <div class="row g-2 mt-3 mx-auto">
+        <div class="row g-2 mt-3 mx-auto" hidden id="btnEdits">
             <div class="col">
-                <button id="btnSubmit" type="button" class="btn btn-outline-primary w-100" onclick="hadleEditCard()">Editar</button>
+                <button id="btnSubmitEdit" type="button" class="btn btn-outline-primary w-100" onclick="hadleEditCard()">Editar</button>
             </div>
             <div class="col">
-                <button id="btnSubmit" type="button" class="btn btn-outline-primary w-100" disabled>Guardar</button>
+                <button id="btnSubmitSave" type="button" class="btn btn-outline-primary w-100" onclick="hadleDaveChangeCard()" disabled>Guardar</button>
             </div>
         </div>
     </form>

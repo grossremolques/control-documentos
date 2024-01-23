@@ -66,6 +66,12 @@ class Documento {
     }
     loadInputsById(documento);
     const formCardDocument = document.getElementById("formCardDocument");
+    listenerChangeEvent(formCardDocument);
+    
+    if(isEncargadoCalidad) {
+      let btnEdits = document.getElementById('btnEdits');
+      btnEdits.removeAttribute('hidden')
+    }
     formCardDocument.classList.remove("hidden");
     loadedSeccion.classList.add("hidden");
   }
@@ -132,6 +138,7 @@ class Documento {
     }
   }
   static async getDocument(codigo) {
+    codigo = codigo.trim()
     try {
       let registerDocumentos = await this.getDocuments();
       let isDocument = registerDocumentos.some((item) => item.codigo === codigo);
