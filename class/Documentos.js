@@ -61,7 +61,7 @@ class Documento {
     await loadAuditorias();
     await loadResponsables();
     documento.fecha_alta = FormatsDate.AmericanFormat(documento.fecha_alta);
-    if (documento.status !== "Aprobado" || documento.status !== "En revisión") {
+    if (documento.status != "Aprobado" && documento.status != "En revisión") {
       documento.url = "No disponible";
     }
     loadInputsById(documento);

@@ -27,6 +27,7 @@ class Table {
         await loadTypesOfDocuments('tipo_filter');
         await loadProcesos('proceso_filter');
         await loadResponsables('responsable_filter')
+        await loadSupervisores('revisado_por_filter')
     }
     static async loadBodyTable(page, data) {
         const start = page * itemsPerPage;
@@ -97,6 +98,7 @@ class Table {
                 return normalizedItemName.includes(word);
             }
         });
+        currentPage = 0
         this.loadBodyTable(currentPage, dataFilter);
         isFiltered = true;
     }
@@ -106,9 +108,7 @@ class Table {
         const inputsFilter = formFilter.querySelectorAll('.filter-value');
         inputsFilter.forEach(item => {FilterValues[item.name] = item.value});
         dataFilter = this.getDataFiltered(dataTable, FilterValues);
-        /* let from = document.getElementById('fromDate').value;
-        let to = document.getElementById('toDate').value;
-        dataFilter = datesFiltered(from, to, dataFilter) */
+        currentPage = 0
         this.loadBodyTable(currentPage,dataFilter);
         isFiltered = true;
     }

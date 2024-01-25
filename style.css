@@ -77,3 +77,7 @@ tr[title="En revisión"] td {
 tr[title="Pendiente"] td {
     background-color: rgb(252 232 146 / 59%);   
 }
+tr td {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
