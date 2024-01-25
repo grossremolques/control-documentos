@@ -9,6 +9,9 @@ class ApiGoogleSheet {
       });
       return response;
     } catch (e) {
+      if(e.status === 401) {
+        window.location.reload()
+      }
       console.log(e);
     }
   }

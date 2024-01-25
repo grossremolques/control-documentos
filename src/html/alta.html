@@ -17,19 +17,18 @@
         <div class="col-12">
             <label for="nombre" class="col-form-label col-form-label-sm">Nombre del documento <span
                     class="text-danger">*</span></label>
-            <textarea type="text" class="form-control form-control-sm save-alta-document" rows="2" id="nombre"
-                required></textarea>
+            <input type="text" class="form-control form-control-sm save-alta-document" id="nombre" maxlength="55" required>
         </div>
         <div class="col-12">
             <label for="url" class="col-form-label col-form-label-sm">Dirección url</label>
             <input type="url" class="form-control form-control-sm save-alta-document" id="url" />
         </div>
-        <!-- <div class="col-12">
+        <div class="col-12" hidden>
             <label for="partes_interesadas" class="col-form-label col-form-label-sm">Partes interesadas</label>
             <select class="form-select form-select-sm save-alta-document" id="partes_interesadas">
                 <option selected value="" disabled>Proximamente...</option>
             </select>
-        </div> -->
+        </div>
         <div class="col-12">
             <label for="responsable" class="col-form-label col-form-label-sm">Cargo del responsable del
                 documento</label>
