@@ -142,4 +142,10 @@ class Table {
             nodoSpan.remove()
         }
     }
+    static async openUITable() {
+        dataTable = await Documento.getDocuments();
+        dataTable = dataTable.filter(item => item.status != 'Superado')
+        await this.load(headerNames, titlePage);
+        this.loadBodyTable(currentPage, dataTable);
+    }
 }
