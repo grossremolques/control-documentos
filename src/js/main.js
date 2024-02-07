@@ -23,10 +23,7 @@ async function loadedWindow() {
   let encargadoCalidad = await Usuario.getEncargadoCalidad()
   isEncargadoCalidad = encargadoCalidad.email === userEmail;
   if(hasUser) {
-    dataTable = await Documento.getDocuments();
-    dataTable = dataTable.filter(item => item.status != 'Superado')
-    await Table.load(headerNames, titlePage);
-    Table.loadBodyTable(currentPage, dataTable);
+    await Table.openUITable()
   }
   else {
     loadDeniedPage()
