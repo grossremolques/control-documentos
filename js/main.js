@@ -17,7 +17,7 @@ const titlePage = "Control de documentos";
 let isEncargadoCalidad;
 
 async function loadedWindow() {
-  await loadPage("./html/loaded.html");
+  document.getElementById('instructionAccess').removeAttribute('hidden')
   let hasUser = await Usuario.hasUser();
   let userEmail = await ApiGoogleSheet.getEmail();
   let encargadoCalidad = await Usuario.getEncargadoCalidad()
@@ -42,7 +42,6 @@ async function loadPage(srcPage, body = interface) {
     console.log(e);
   }
 }
-
 function arrayToObject(arr) {
   // Obtenemos los encabezados del array
   var headers = arr[0];
@@ -71,7 +70,6 @@ function objectToArray(obj, arr) {
   }
   return arr;
 }
-
 function normalizeString(str) {
   return str
     .normalize("NFD")

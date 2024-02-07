@@ -53,7 +53,7 @@ class Usuario {
     static async getEncargadoCalidad() {
         try {
             let usuarios = await this.getUsuarios();
-            let encargado = usuarios.find(item => item.cargo === 'Analista de calidad y sistemas');
+            let encargado = usuarios.find(item => item.cargo === 'Encargado de calidad y sistemas');
             return encargado
         } catch(e) {
             console.log(e)
