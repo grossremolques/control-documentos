@@ -17,7 +17,7 @@ const titlePage = "Control de documentos";
 let isEncargadoCalidad;
 
 async function loadedWindow() {
-  await loadPage("./html/loaded.html");
+  document.getElementById('instructionAccess').removeAttribute('hidden')
   let hasUser = await Usuario.hasUser();
   let userEmail = await ApiGoogleSheet.getEmail();
   let encargadoCalidad = await Usuario.getEncargadoCalidad()

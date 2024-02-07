@@ -1,3 +1,7 @@
+window.addEventListener("load", async function (event) {
+    await loadPage("./html/loaded.html");
+    document.getElementById('instructionAccess').removeAttribute('hidden')
+  });
 const DISCOVERY_DOC = ['https://sheets.googleapis.com/$discovery/rest?version=v4', 'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'];
 const SCOPES = 'https://mail.google.com/ https://www.googleapis.com/auth/spreadsheets';
 let tokenClient;
