@@ -81,3 +81,10 @@ tr td {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
 }
+.version {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-style: italic;
+    font-size: 12px;
+}
